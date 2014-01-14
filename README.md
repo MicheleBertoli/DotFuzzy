@@ -3,7 +3,7 @@ DotFuzzy
 
 Disclaimer
 ----------
-This is the project I done for my bachelor thesis in 2008 and I never updated or mantained it.
+This is the project I did for my bachelor thesis in 2008 and I never updated nor mantained it.
 I published the source because some developers are using it and I hope they can improve the library.
 
 What is DotFuzzy?
