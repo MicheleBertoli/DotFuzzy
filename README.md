@@ -1,9 +1,11 @@
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 DotFuzzy
 ========
 
 Disclaimer
 ----------
-This is the project I did for my bachelor thesis in 2008 and I never updated nor mantained it.
+:warning: This is the project I did for my bachelor thesis in 2008 and I never updated nor mantained it.
 I published the source because some developers are using it and I hope they can improve the library.
 
 What is DotFuzzy?
@@ -13,29 +15,32 @@ DotFuzzy implements fuzzification, rules validation/evaluation and defuzzificati
 
 Usage
 -----
-    LinguisticVariable water = new LinguisticVariable("Water"); 
-    water.MembershipFunctionCollection.Add(new MembershipFunction("Cold", 0, 0, 20, 40)); 
-    water.MembershipFunctionCollection.Add(new MembershipFunction("Tepid", 30, 50, 50, 70)); 
-    water.MembershipFunctionCollection.Add(new MembershipFunction("Hot", 50, 80, 100, 100));
 
-    LinguisticVariable power = new LinguisticVariable("Power"); 
-    power.MembershipFunctionCollection.Add(new MembershipFunction("Low", 0, 25, 25, 50)); 
-    power.MembershipFunctionCollection.Add(new MembershipFunction("High", 25, 50, 50, 75));
+```cs
+LinguisticVariable water = new LinguisticVariable("Water"); 
+water.MembershipFunctionCollection.Add(new MembershipFunction("Cold", 0, 0, 20, 40)); 
+water.MembershipFunctionCollection.Add(new MembershipFunction("Tepid", 30, 50, 50, 70)); 
+water.MembershipFunctionCollection.Add(new MembershipFunction("Hot", 50, 80, 100, 100));
 
-    FuzzyEngine fuzzyEngine = new FuzzyEngine(); 
-    fuzzyEngine.LinguisticVariableCollection.Add(water); 
-    fuzzyEngine.LinguisticVariableCollection.Add(power); 
-    fuzzyEngine.Consequent = "Power"; 
-    fuzzyEngine.FuzzyRuleCollection.Add(new FuzzyRule("IF (Water IS Cold) OR (Water IS Tepid) THEN Power IS High")); 
-    fuzzyEngine.FuzzyRuleCollection.Add(new FuzzyRule("IF (Water IS Hot) THEN Power IS Low"));
+LinguisticVariable power = new LinguisticVariable("Power"); 
+power.MembershipFunctionCollection.Add(new MembershipFunction("Low", 0, 25, 25, 50)); 
+power.MembershipFunctionCollection.Add(new MembershipFunction("High", 25, 50, 50, 75));
 
-    water.InputValue = 60;
+FuzzyEngine fuzzyEngine = new FuzzyEngine(); 
+fuzzyEngine.LinguisticVariableCollection.Add(water); 
+fuzzyEngine.LinguisticVariableCollection.Add(power); 
+fuzzyEngine.Consequent = "Power"; 
+fuzzyEngine.FuzzyRuleCollection.Add(new FuzzyRule("IF (Water IS Cold) OR (Water IS Tepid) THEN Power IS High")); 
+fuzzyEngine.FuzzyRuleCollection.Add(new FuzzyRule("IF (Water IS Hot) THEN Power IS Low"));
 
-    try 
-    { 
-        MessageBox.Show(fuzzyEngine.Defuzzify().ToString()); 
-    } 
-    catch (Exception e) 
-    { 
-        MessageBox.Show(e.Message); 
-    }
+water.InputValue = 60;
+
+try 
+{ 
+    MessageBox.Show(fuzzyEngine.Defuzzify().ToString()); 
+} 
+catch (Exception e) 
+{ 
+    MessageBox.Show(e.Message); 
+}
+```
